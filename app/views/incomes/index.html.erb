@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div id="user_nav">
+    <% if current_user %>
+      <h1>Income List Of <i><%= current_user.name.capitalize %></i></h1>
+    <%end%>
+    
+ <table class="table table-hover table-bordered">
+  <thead>
+    <tr class="success">
+      <th>Category Name</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Show</th>
+      <th>Edit</th>
+      </tr>
+  </thead>
+
+  <tbody>
+  <% if @incomes.present? %>
+  <% @incomes.each do |income|%>
+      <tr class="warning">
+        <td><%= income.income_category.income_source %></td>
+        <td><%= income.amount %></td>
+        <td><%= income.date %></td>
+        <td><%= link_to 'Show', income %></td>
+        <td><%= link_to 'Edit', edit_income_path(income) %></td>
+      </tr>
+  <% end %>
+  <% end %>
+
+  </tbody>
+</table>
+ <td><%= link_to 'Generate Income', new_income_path , class: 'btn btn-warning', style: 'color:white' %></td>
+ <td><%= link_to 'Income Category', new_income_category_path , class: 'btn btn-warning', style: 'color:white' %></td>
+  <td><%= link_to 'Expense', expenses_path , class: 'btn btn-warning', style: 'color:white' %></td>
+  <td><%= link_to 'Expense Category', new_expense_category_path , class: 'btn btn-warning', style: 'color:white' %></td>
+  <td><%= link_to 'Transaction', transactions_path , class: 'btn btn-warning', style: 'color:white' %></td>
+</div>
+
+       

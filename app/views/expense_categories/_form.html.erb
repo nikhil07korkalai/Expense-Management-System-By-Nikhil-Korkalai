@@ -1,0 +1,32 @@
+
+<div class="container">
+<%= form_for(@expense_category , :html => {:id => "expense_category_form" , :onsubmit => "return checkform(); return false"}) do |f| %>
+  <% if @expense_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense_category.errors.count, "error") %> prohibited this Expense Categories from being saved:</h2>
+
+      <ul>
+      <% @expense_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+      <label for="Expense Source">Expense Source:</label>
+      <%= f.text_field :expense_source,:class=>"form-control validate[required]" %>
+  </div>
+  <div class="form-group">
+      <label for="Description">Description:</label>
+      <%= f.text_field :desc,:class=>"form-control validate[required]"%>
+  </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </br>
+<% end %>
+</div>
+
+<script>
+    function  checkform(){
+      return jQuery("#expense_category_form").validationEngine('validate');
+    }
+</script>

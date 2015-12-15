@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_reference: 1
+  category: 
+  amount: 1.5
+  date: 2015-12-12
+
+two:
+  user_reference: 1
+  category: 
+  amount: 1.5
+  date: 2015-12-12

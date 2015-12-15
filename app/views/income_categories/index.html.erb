@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div id="user_nav">  
+    <% if current_user %>
+      <h1>Incomes List Of <i><%= current_user.name.capitalize %></i></h1>
+    <%end%>
+    
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr class="success">
+      <th>Income Source</th>
+      <th>Description</th>
+      <th>Show</th>
+      <th>Edit</th>
+      </tr>
+  </thead>
+
+  <tbody>
+  <% if @income_categories.present? %>
+   <% @income_categories.each do |incomecat| %>
+      <tr class="warning">
+        <td><%= incomecat.income_source %></td>
+        <td><%= incomecat.desc %></td>
+        <td><%= link_to 'Show', incomecat %></td>
+        <td><%= link_to 'Edit', edit_income_category_path(incomecat) %></td>
+      </tr>
+   <% end %>
+  <% end %>
+  </tbody>
+</table>
+ <td><%= link_to 'Generate Income Category',  new_income_category_path , class: 'btn btn-warning', style: 'color:white' %></td>
+ <td><%= link_to 'Income', incomes_path , class: 'btn btn-warning', style: 'color:white' %></td>
+</div>
+
+       

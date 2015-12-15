@@ -1,0 +1,11 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+<br></td>
+<p><h4><b>Details Of Your Expense Category:</b></h4></p>
+<%= link_to 'Edit', edit_expense_category_path(@expense_category) %> |
+<%= link_to 'Back', expense_categories_path %>
+<table class="table">
+   <thead><th><p>Expense Source: <%= @expense_category.expense_source %><br/></p></th></thead>
+   <thead><th><p>  Description: <%= @expense_category.desc %><br/></p></th></thead>
+</table>
+</div>

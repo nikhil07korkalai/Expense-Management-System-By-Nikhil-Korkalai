@@ -1,0 +1,36 @@
+<div class="container">
+<%= link_to "| Generate Category",income_categories_path , :style => "float:right;" %> <%= link_to 'Back |', incomes_path, :style => "float:right;"%>
+<%= form_for(@income, :html => {:id => "income_form" , :onsubmit => "return checkform(); return false"}) do |f| %>
+  <% if @income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@income.errors.count, "error") %> prohibited this income from being saved:</h2>
+
+      <ul>
+      <% @income.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+      <label for="Income Category">Income Category:</label>
+      <%= f.collection_select(:category, IncomeCategory.where(user_reference: current_user), :id, :income_source) %>
+  </div>
+  <div class="form-group">
+      <label for="Amount">Amount:</label>
+      <%= f.number_field :amount,:class=>"form-control validate[required]"%>
+  </div>
+  <div class="form-group">
+    <label for="Date">Date</label>
+    <%= f.date_field :date,:class=>"form-control validate[required]"%>
+  </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </br>
+<% end %>
+</div>
+
+<script>
+    function  checkform(){
+      return jQuery("#income_form").validationEngine('validate');
+    }
+</script>

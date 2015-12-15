@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div id="user_nav"> 
+    <% if current_user %>
+      <h1>Expense List Of <i><%= current_user.name.capitalize %></i></h1>
+    <%end%>
+    
+ <table class="table table-hover table-bordered">
+  <thead>
+    <tr class="success">
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Show</th>
+      <th>Edit</th>
+      </tr>
+  </thead>
+
+  <tbody>
+  <% if @expenses.present? %>
+   <%  @expenses.each do |expense| %>
+      <tr class="warning">
+        <td><%= expense.expense_category.expense_source %></td>
+        <td><%= expense.amount %></td>
+        <td><%= expense.date %></td>
+        <td><%= link_to 'Show', expense %></td>
+        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+      </tr>
+   <% end %>
+  <% end %>
+  </tbody>
+</table>
+ <td><%= link_to 'Generate New Expense', new_expense_path , class: 'btn btn-warning', style: 'color:white' %></td>
+ <td><%= link_to 'Expense Category', expense_categories_path , class: 'btn btn-warning', style: 'color:white' %></td>
+  <td><%= link_to 'Home', incomes_path , class: 'btn btn-warning', style: 'color:white' %></td>
+</div>
+
+       

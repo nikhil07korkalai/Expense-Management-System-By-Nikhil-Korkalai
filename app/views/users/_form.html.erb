@@ -1,0 +1,35 @@
+
+<div class="container">
+<p>
+<%= form_for @user do |f| %>
+    <div class="form-group">
+      <label for="user_name"> Name:</label>
+      <%= f.text_field :name,:class=>"form-control"%>
+    </div>
+</p>
+<p>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <%= f.text_field :email,:class=>"form-control"%>
+    </div>
+
+</p>
+<p>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <%= f.password_field :password,:class=>"form-control"%>
+    </div>
+
+</p>
+<p>
+    <div class="form-group">
+      <label for="password_confirmation">Password Confirmation:</label>
+      <%= f.password_field :password_confirmation,:class=>"form-control"%>
+    </div>
+    <br>
+      <button type="submit" class="btn btn-warning">Submit</button>
+      <td><%= link_to 'Back', login_path , class: 'btn btn-warning', style: 'color:white' %></td>
+    </br>
+<%end%>
+</p>
+</div>

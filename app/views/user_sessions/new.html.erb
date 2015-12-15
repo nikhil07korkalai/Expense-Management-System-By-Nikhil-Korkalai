@@ -1,0 +1,27 @@
+<div class="container">
+<body>
+    <div class="bs-example">
+        <%= form_for @user_session, :as => :user_session, :url => { :action => "create" } do |f| %>
+           <table class="table table-hover table-bordered">
+                     <caption style="font-size:160%;"><center><b>Login</b></center></caption>  
+                    <tr>
+                      <th>Email</th>
+                      <td><%= f.text_field :email , :class => "form-control" , :placeholder => "Email" %></td>
+                    </tr>
+                    <tr>
+                      <th>Password</th>
+                      <td><%= f.password_field :password , :class => "form-control" , :placeholder => "Password" %></td>
+                    </tr>
+                    <tr>
+                      <th>Remeber me</th>
+                      <td><%= f.check_box :remember_me %></td>
+                    </tr>
+              </table>
+            <button type="submit" class="btn btn-warning">Login</button>
+            <%= link_to "Signup", signup_url , class: 'btn btn-warning', style: 'color:white' %>
+        <% end %>
+    </div>
+</body>
+</html>
+
+
